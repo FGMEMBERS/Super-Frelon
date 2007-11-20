@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <path>superfrelon.ac</path>
+  <offsets>
+    <x-m> 0.000 </x-m>
+    <y-m> 0.000 </y-m>
+    <z-m> 0.000 </z-m>
+    <roll-deg>    0.000 </roll-deg>
+    <pitch-deg>   0.000 </pitch-deg>
+    <heading-deg> 0.000 </heading-deg>
+  </offsets>
+
+  <animation>
+    <object-name>fuselage</object-name>
+    <object-name>interieur</object-name>
+    <object-name>surroues</object-name>
+    <object-name>tail</object-name>
+    <object-name>aileron</object-name>
+    <object-name>toit</object-name>
+    <object-name>echelle</object-name>
+    <object-name>roueA</object-name>
+    <object-name>roueG</object-name>
+    <object-name>roueD</object-name>
+    <!-- Transparence -->
+    <object-name>vitres</object-name>
+  </animation>
+
+  <animation>
+    <type>noshadow</type>
+    <object-name>vitres</object-name>
+  </animation>
+
+  <!-- Rotor principale -->
+  <model>
+    <path>Aircraft/Super-Frelon/Models/MainRotor/mainrotor.xml</path>
+    <offsets>
+      <x-m> -2.508 </x-m>
+      <y-m>  0.014 </y-m>
+      <z-m>  1.345 </z-m>
+      <roll-deg>    0.000 </roll-deg>
+      <pitch-deg>  -5.000 </pitch-deg>
+      <heading-deg> 0.000 </heading-deg>
+    </offsets>
+  </model>
+
+  <!-- Rotor de queue -->
+  <model>
+    <path>Aircraft/Super-Frelon/Models/TailRotor/tailrotor.xml</path>
+    <offsets>
+      <x-m>  9.295 </x-m>
+      <y-m> -0.506 </y-m>
+      <z-m>  1.335 </z-m>
+      <roll-deg>   90.000 </roll-deg>
+      <pitch-deg>   0.000 </pitch-deg>
+      <heading-deg> 0.000 </heading-deg>
+    </offsets>
+  </model>
+
+  <!-- Pilote invisible depuis le cockpit
+  <animation>
+    <type>select</type>
+    <object-name>pilot</object-name>
+    <condition>
+      <greater-than>
+        <property>sim/current-view/view-number</property>
+        <value>0</value>
+      </greater-than>
+    </condition>
+  </animation> -->
+
+  <!-- Compresssion -->
+  <animation>
+    <type>translate</type>
+    <object-name>roueA</object-name>
+    <property>gear/gear[0]/compression-m</property>
+    <factor> 0.3 </factor>
+    <axis>
+      <x> 0.000 </x>
+      <y> 0.000 </y>
+      <z> 1.000 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>roueG</object-name>
+    <property>gear/gear[1]/compression-m</property>
+    <factor> 0.3 </factor>
+    <axis>
+      <x> 0.000 </x>
+      <y> 0.000 </y>
+      <z> 1.000 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>roueD</object-name>
+    <property>gear/gear[2]/compression-m</property>
+    <factor> 0.3 </factor>
+    <axis>
+      <x> 0.000 </x>
+      <y> 0.000 </y>
+      <z> 1.000 </z>
+    </axis>
+  </animation>
+
+</PropertyList>
+
