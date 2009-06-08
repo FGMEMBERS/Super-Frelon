@@ -1,9 +1,9 @@
-<?xml version="1.0"?>
-<!--
-************************************************************************
-Super Frelon simulation config.
+<?xml version="1.0" encoding="UTF-8"?>
 
-************************************************************************
+<!--
+    ************************************************************************
+    Super Frelon simulation config.
+    ************************************************************************
 -->
 
 <PropertyList>
@@ -20,7 +20,7 @@ Super Frelon simulation config.
     <fuel-fraction>0.8</fuel-fraction>
 
     <startup>
-      <splash-texture>Aircraft/Super-Frelon/superfrelon-splash.rgb</splash-texture>
+      <splash-texture>Aircraft/Super-Frelon/superfrelon-splash.png</splash-texture>
     </startup> 
 
     <sound>
@@ -29,10 +29,14 @@ Super Frelon simulation config.
 
     <model>
       <path archive="y">Aircraft/Super-Frelon/Models/superfrelon.xml</path>
+      <livery>
+        <file type="string">default</file>
+      </livery>
       <superfrelon>
         <state type="int">0</state>
         <engine type="float">0.0</engine>
         <rotor-step-deg type="float">-1.0</rotor-step-deg>
+        <radarnoze type="int">0</radarnoze>
       </superfrelon>
     </model>
 
@@ -88,7 +92,33 @@ Super Frelon simulation config.
         <name>D</name>
         <desc>Left windows</desc>
       </key>
+      <key>
+        <name>{</name>
+        <desc>Start engines</desc>
+      </key>
+      <key>
+        <name>}</name>
+        <desc>Shutdown engines</desc>
+      </key>
+      <key>
+        <name>R</name>
+        <desc>Toggle rotor brake</desc>
+      </key>
+      <key>
+        <name>r</name>
+        <desc>Apply rotor brake</desc>
+      </key>
+      <key>
+        <name>Ctrl d</name>
+        <desc>S.A.S.</desc>
+      </key>
+      <key>
+        <name>Ctrl f</name>
+        <desc>Auto hover</desc>
+      </key>
     </help>
+
+    <menubar include="Dialogs/superfrelon-menu.xml"/>
 
   </sim>
 
@@ -118,13 +148,6 @@ Super Frelon simulation config.
     <keyboard include="Nasal/superfrelon-keyboard.xml"/>
   </input>
 
-  <nasal>
-    <superfrelon>
-      <file>Aircraft/Super-Frelon/Nasal/doors.nas</file>
-      <file>Aircraft/Super-Frelon/Nasal/superfrelon.nas</file>
-    </superfrelon>
-  </nasal>
-
   <rotors>
     <main>
       <rpm type="double">0</rpm>
@@ -135,6 +158,18 @@ Super Frelon simulation config.
       <cone4-deg type="double">0</cone4-deg>
     </main>
   </rotors>
+
+  <nasal>
+    <superfrelon>
+      <file>Aircraft/Super-Frelon/Nasal/doors.nas</file>
+      <file>Aircraft/Super-Frelon/Nasal/immat.nas</file>
+      <file>Aircraft/Super-Frelon/Nasal/light.nas</file>
+      <file>Aircraft/Super-Frelon/Nasal/superfrelon.nas</file>
+      <file>Aircraft/Super-Frelon/Nasal/radarnoze.nas</file>
+      <file>Aircraft/Super-Frelon/Nasal/liveries.nas</file>
+      <file>Aircraft/Super-Frelon/Nasal/afcs.nas</file>
+    </superfrelon>
+  </nasal>
 
 </PropertyList>
 
