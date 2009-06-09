@@ -110,7 +110,11 @@
       </key>
       <key>
         <name>Ctrl d</name>
-        <desc>S.A.S.</desc>
+        <desc>Toggle S.A.S.</desc>
+      </key>
+      <key>
+        <name>Ctrl e</name>
+        <desc>Toggle C.A.S.</desc>
       </key>
       <key>
         <name>Ctrl f</name>
@@ -167,7 +171,10 @@
       <file>Aircraft/Super-Frelon/Nasal/superfrelon.nas</file>
       <file>Aircraft/Super-Frelon/Nasal/radarnoze.nas</file>
       <file>Aircraft/Super-Frelon/Nasal/liveries.nas</file>
-      <file>Aircraft/Super-Frelon/Nasal/afcs.nas</file>
+      <file>Aircraft/Super-Frelon/Nasal/bladevisible.nas</file>
+      <file>Aircraft/Super-Frelon/Nasal/fcs-management.nas</file>
+
+      <file>Aircraft/Generic/fcs.nas</file>
     </superfrelon>
   </nasal>
 
