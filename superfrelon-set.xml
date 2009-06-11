@@ -174,7 +174,7 @@
       <file>Aircraft/Super-Frelon/Nasal/bladevisible.nas</file>
       <file>Aircraft/Super-Frelon/Nasal/fcs-management.nas</file>
 
-      <file>Aircraft/Generic/fcs.nas</file>
+      <file>Aircraft/Generic/helicopter-fcs.nas</file>
     </superfrelon>
   </nasal>
 
