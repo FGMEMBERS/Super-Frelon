@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>superfrelon.ac</path>
+
+  <nasal>
+    <load>
+      var livery_update = aircraft.livery_update.new("Aircraft/Super-Frelon/Models/Liveries", 10);
+    </load>
+    <unload>
+      livery_update.stop();
+    </unload>
+  </nasal>
+
+  <animation>
+    <object-name>fuselage</object-name>
+    <object-name>surroues</object-name>
+    <object-name>tail</object-name>
+    <object-name>aileron</object-name>
+    <object-name>toit</object-name>
+    <object-name>echelle</object-name>
+    <object-name>roueA</object-name>
+    <object-name>roueG</object-name>
+    <object-name>roueD</object-name>
+    <object-name>trous</object-name>
+    <object-name>nez</object-name>
+
+    <!-- Transparence -->
+    <object-name>vitres</object-name>
+  </animation>
+
+  <animation>
+    <type>shader</type>
+    <shader>chrome</shader>
+    <texture>glass_shader.png</texture>
+    <object-name>vitres</object-name>
+  </animation>
+
+  <animation>
+    <type>noshadow</type>
+    <object-name>vitres</object-name>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>fuselage</object-name>
+    <object-name>surroues</object-name>
+    <object-name>tail</object-name>
+    <object-name>aileron</object-name>
+    <object-name>toit</object-name>
+    <object-name>echelle</object-name>
+    <object-name>roueA</object-name>
+    <object-name>roueG</object-name>
+    <object-name>roueD</object-name>
+    <object-name>trous</object-name>
+    <object-name>nez</object-name>
+
+    <property-base>sim/model/livery</property-base>
+    <texture-prop>texture</texture-prop>
+    <texture>texture.png</texture>
+<!--
+    <diffuse>
+      <red-prop>diffuse/red</red-prop>
+      <green-prop>diffuse/green</green-prop>
+      <blue-prop>diffuse/blue</blue-prop>
+    </diffuse>
+
+    <ambient>
+      <red-prop>ambient/red</red-prop>
+      <green-prop>ambient/green</green-prop>
+      <blue-prop>ambient/blue</blue-prop>
+    </ambient>
+-->
+    <specular>
+      <red-prop>specular/red</red-prop>
+      <green-prop>specular/green</green-prop>
+      <blue-prop>specular/blue</blue-prop>
+    </specular>
+
+    <emission>
+      <red-prop>emission/red</red-prop>
+      <green-prop>emission/green</green-prop>
+      <blue-prop>emission/blue</blue-prop>
+    </emission>
+<!--
+    <shininess>
+      <shininess-prop>shininess</shininess-prop>
+    </shininess>
+-->
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>nez</object-name>
+    <condition>
+      <equals>
+        <property>/sim/model/superfrelon/radarnoze</property>
+        <value>1</value>
+      </equals>
+    </condition>
+  </animation>
+
+  <!-- Intérieur -->
+  <model>
+    <path>Aircraft/Super-Frelon/Models/Interior/interior.xml</path>
+    <offsets>
+      <x-m> 0 </x-m>
+      <y-m> 0 </y-m>
+      <z-m> 0 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   0 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <!-- Rotor principale -->
+  <model>
+    <path>Aircraft/Super-Frelon/Models/MainRotor/mainrotor.xml</path>
+    <offsets>
+      <x-m> -2.508 </x-m>
+      <y-m>  0.014 </y-m>
+      <z-m>  1.345 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>  -5 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <!-- Rotor de queue -->
+  <model>
+    <path>Aircraft/Super-Frelon/Models/TailRotor/tailrotor.xml</path>
+    <offsets>
+      <x-m>  9.295 </x-m>
+      <y-m> -0.506 </y-m>
+      <z-m>  1.335 </z-m>
+      <roll-deg>   90 </roll-deg>
+      <pitch-deg>   0 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <!-- Compresssion -->
+  <animation>
+    <type>translate</type>
+    <object-name>roueA</object-name>
+    <property>gear/gear[0]/compression-m</property>
+    <factor> 0.3 </factor>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>roueG</object-name>
+    <property>gear/gear[1]/compression-m</property>
+    <factor> 0.3 </factor>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>roueD</object-name>
+    <property>gear/gear[2]/compression-m</property>
+    <factor> 0.3 </factor>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+
+</PropertyList>
+
