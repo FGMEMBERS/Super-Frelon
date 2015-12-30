@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+  
+  <!--== particles ==-->
+  <particlesystem>
+    <name>ground</name>
+    <texture>dirt.png</texture>
+    <emissive>false</emissive>
+    <lighting>false</lighting>
+    
+    <offsets>
+      <roll-deg> 90 </roll-deg>
+    </offsets>
+    
+    <attach>world</attach>
+    
+    <placer>
+      <type>point</type>
+    </placer>
+   
+    <condition>
+      <not>
+        <property>sim/paused</property>
+      </not>
+      <not>
+        <property>sim/crashed</property>
+      </not>
+      <less-than>
+        <!-- <property>position/gear-agl-m</property> -->
+        <property>sim/multiplay/generic/float[2]</property>
+        <value> 70 </value>
+      </less-than>
+      <greater-than>
+        <!-- <property>rotors/main/rpm</property> -->
+        <property>sim/multiplay/generic/float[18]</property>
+        <value> 100 </value>
+      </greater-than>
+    </condition>
+    
+    <shooter>
+      <theta-min-deg>   0.0 </theta-min-deg>
+      <theta-max-deg> 360.0 </theta-max-deg>
+      <phi-min-deg>    -0.1 </phi-min-deg>
+      <phi-max-deg>     0.1 </phi-max-deg>
+      <speed-mps>
+        <!-- <property>rotors/main/rpm</property> -->
+        <property>sim/multiplay/generic/float[18]</property>
+        <factor> 0.1 </factor>
+        <spread> 6.0 </spread>
+      </speed-mps>
+      <rotation-speed>
+        <x-min-deg-sec> 0 </x-min-deg-sec>
+        <y-min-deg-sec> 0 </y-min-deg-sec>
+        <z-min-deg-sec> 0 </z-min-deg-sec>
+        <x-max-deg-sec> 0 </x-max-deg-sec>
+        <y-max-deg-sec> 0 </y-max-deg-sec>
+        <z-max-deg-sec> 0 </z-max-deg-sec>
+      </rotation-speed>
+    </shooter>
+    
+    <counter>
+      <particles-per-sec>
+        <!-- <property>position/gear-agl-m</property> -->
+        <property>sim/multiplay/generic/float[2]</property>
+        <factor> -40 </factor>
+        <offset-m> 2000 </offset-m>
+      </particles-per-sec>
+    </counter>
+    
+    <align>billboard</align>
+    
+    <particle>
+      <start>
+        <color>
+          <red><value>   0.6 </value></red>
+          <green><value> 0.6 </value></green>
+          <blue><value>  0.6 </value></blue>
+          <alpha>
+            <!-- <property>rotors/main/rpm</property> --> 
+            <property>sim/multiplay/generic/float[18]</property>
+            <factor> 0.00004 </factor>
+            <max> 0.02 </max>
+          </alpha>
+        </color>
+        <size>
+          <value> 0.8 </value>
+        </size>
+      </start>
+      
+      <end>
+        <color>
+          <red><value>0.6</value></red>
+          <green><value>0.6</value></green>
+          <blue><value>0.6</value></blue>
+          <alpha>
+            <!-- <property>rotors/main/rpm</property> -->
+            <property>sim/multiplay/generic/float[18]</property>
+            <factor> 0.0002 </factor>
+            <max> 0.04 </max>
+          </alpha>
+        </color>
+        <size>
+          <value> 0.8 </value>
+        </size>
+      </end>
+      
+      <life-sec>
+        <value> 0.37 </value>
+      </life-sec>
+      
+      <mass-kg>  0.01000 </mass-kg>
+      <radius-m> 0.00001 </radius-m>
+    </particle>
+    
+    <program>
+      <fluid>   water </fluid>
+      <gravity> true  </gravity>
+      <wind>    false </wind>
+    </program>
+  </particlesystem>
+
+  <!-- Animation -->
+  <animation>
+    <type>rotate</type>
+    <object-name>ground</object-name>
+    <property>orientation/pitch-deg</property>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>ground</object-name>
+    <property>orientation/roll-deg</property>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>translate</type>
+    <object-name>ground</object-name>
+    <!-- position/gear-agl-m -->
+    <property>sim/multiplay/generic/float[2]</property>
+    <axis>
+      <x>  0 </x>
+      <y>  0 </y>
+      <z> -1 </z>
+    </axis>
+  </animation>
+  
+</PropertyList>
