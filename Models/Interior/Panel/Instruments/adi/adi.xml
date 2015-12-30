@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+  
+  <path>adi.ac</path>
+  
+  <animation>
+    <!-- Objets opaques -->
+    <object-name>Housing</object-name>
+    <object-name>InkyDepths</object-name>
+    <object-name>Face</object-name>
+    <object-name>W</object-name>
+    <object-name>Ball</object-name>
+    <object-name>RollIndicator</object-name>
+    <object-name>ATTFlag</object-name>
+    <object-name>TurnIndicator</object-name>
+    <object-name>PitchKnob</object-name>
+    <object-name>RollKnob</object-name>
+    
+    <!-- Objets transparents -->
+    <object-name>vitre</object-name>
+  </animation>
+  
+  <!-- working for Rembrandt -->
+  <effect>
+    <inherits-from>Aircraft/Super-Frelon/Models/Effects/Glass/glass</inherits-from>
+    <object-name>vitre</object-name>
+  </effect>
+  
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>vitre</object-name>
+  </effect>
+  
+  <animation>
+    <type>material</type>
+    <object-name>Face</object-name>
+    <object-name>W</object-name>
+    <object-name>Ball</object-name>
+    <object-name>RollIndicator</object-name>
+    <object-name>ATTFlag</object-name>
+    <object-name>TurnIndicator</object-name>
+    <object-name>PitchKnob</object-name>
+    <object-name>RollKnob</object-name>
+    <emission>
+      <factor-prop>systems/electrical/outputs/instrument-lights</factor-prop>
+      <red>   0.50 </red>
+      <green> 0.25 </green>
+      <blue>  0.25 </blue>
+    </emission> 
+  </animation>
+  
+  <instrumentation>
+    <attitude-indicator>
+      <roll-offset-deg type="double">0</roll-offset-deg>
+    </attitude-indicator>
+  </instrumentation>
+  
+  <animation>
+    <name>Roll</name>
+    <object-name>Ball</object-name>
+    <object-name>RollIndicator</object-name>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>Roll</object-name>
+    <property>/orientation/roll-deg</property>
+    <center>
+      <x-m> 0.000 </x-m>
+      <y-m> 0.000 </y-m>
+      <z-m> 0.003 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>texmultiple</type>
+    <object-name>Ball</object-name>
+    <transform>
+      <subtype>textranslate</subtype>
+      <property>/orientation/pitch-deg</property>
+      <factor>.0037</factor>
+      <axis>
+        <x> 0 </x>
+        <y> 1 </y>
+        <z> 0 </z>
+      </axis>
+    </transform>
+    <transform>
+      <subtype>textranslate</subtype>
+      <property>instrumentation/attitude-indicator/horizon-offset-deg</property>
+      <factor>.0074</factor>
+      <axis>
+        <x> 0 </x>
+        <y> 1 </y>
+        <z> 0 </z>
+      </axis>
+    </transform>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>RollKnob</object-name>
+    <property>instrumentation/attitude-indicator/roll-offset-deg</property>
+    <factor>-6</factor>
+    <center>
+      <x-m>  0.00 </x-m>
+      <y-m> -0.05 </y-m>
+      <z-m> -0.05 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>PitchKnob</object-name>
+    <property>instrumentation/attitude-indicator/horizon-offset-deg</property>
+    <factor>-6</factor>
+    <center>
+      <x-m>  0.00 </x-m>
+      <y-m>  0.05 </y-m>
+      <z-m> -0.05 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>ATTFlag</object-name>
+    <property>sim/model/jrb-usn/ATTFlag-pos-norm</property>
+    <offset-deg>-45</offset-deg>
+    <factor>45</factor>
+    <center>
+      <x-m>  0.00 </x-m>
+      <y-m> -0.059 </y-m>
+      <z-m> -0.012 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>translate</type>
+    <object-name>TurnIndicator</object-name>
+    <property>instrumentation/turn-indicator/indicated-turn-rate</property>
+    <factor> 0.0052 </factor>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>pick</type>
+    <visible>true</visible>
+    <object-name>RollKnob</object-name>
+    <action>
+      <button>4</button>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/attitude-indicator/roll-offset-deg</property>
+        <step>1.5</step>
+        <min>-15</min>
+        <max>15</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <button>3</button>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/attitude-indicator/roll-offset-deg</property>
+        <step>-1.5</step>
+        <min>-15</min>
+        <max>15</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+  
+  <animation>
+    <type>pick</type>
+    <visible>true</visible>
+    <object-name>PitchKnob</object-name>
+    <action>
+      <button>4</button>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/attitude-indicator/horizon-offset-deg</property>
+        <step>0.75</step>
+        <min>-15</min>
+        <max>15</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <button>3</button>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/attitude-indicator/horizon-offset-deg</property>
+        <step>-0.75</step>
+        <min>-15</min>
+        <max>15</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+  
+</PropertyList>

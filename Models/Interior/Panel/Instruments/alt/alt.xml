@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+  
+  <path>alt.ac</path>
+  
+  <animation>
+    <!-- Objets opaques -->
+    <object-name>AltBevel</object-name>
+    <object-name>AltFace</object-name>
+    <object-name>AltNeedle</object-name>
+    <object-name>100ft</object-name>
+    <object-name>1000ft</object-name>
+    <object-name>10000ft</object-name>
+    <object-name>inhg</object-name>
+    <object-name>inhg1</object-name>
+    <object-name>inhg2</object-name>
+    <object-name>inhg3</object-name>
+    <object-name>inhg4</object-name>
+    
+    <!-- Objets transparents -->
+    <object-name>AltVitre</object-name>
+  </animation>
+  
+  <!-- working for Rembrandt -->
+  <effect>
+    <inherits-from>Aircraft/Super-Frelon/Models/Effects/Glass/glass</inherits-from>
+    <object-name>AltVitre</object-name>
+  </effect>
+  
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>AltVitre</object-name>
+  </effect>
+  
+  <animation>
+    <type>material</type>
+    <object-name>AltFace</object-name>
+    <object-name>AltNeedle</object-name>
+    <object-name>100ft</object-name>
+    <object-name>1000ft</object-name>
+    <object-name>10000ft</object-name>
+    <object-name>inhg</object-name>
+    <object-name>inhg1</object-name>
+    <object-name>inhg2</object-name>
+    <object-name>inhg3</object-name>
+    <object-name>inhg4</object-name>
+    <emission>
+      <factor-prop>systems/electrical/outputs/instrument-lights</factor-prop>
+      <red>   0.50 </red>
+      <green> 0.25 </green>
+      <blue>  0.25 </blue>
+    </emission> 
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>AltNeedle</object-name>
+    <property>instrumentation/altimeter/indicated-altitude-ft</property>
+    <factor> -0.36 </factor>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>textranslate</type>
+    <object-name>100ft</object-name>
+    <property>instrumentation/altimeter/indicated-altitude-ft</property>
+    <factor> 0.001 </factor>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>textranslate</type>
+    <object-name>1000ft</object-name>
+    <property>instrumentation/altimeter/indicated-altitude-ft</property>
+    <factor> 0.0001 </factor>
+    <step> 1000 </step>
+    <scroll> 100 </scroll>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>textranslate</type>
+    <object-name>10000ft</object-name>
+    <property>instrumentation/altimeter/indicated-altitude-ft</property>
+    <factor> 0.00001 </factor>
+    <step> 100000 </step>
+    <scroll> 1000 </scroll>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>textranslate</type>
+    <object-name>inhg1</object-name>
+    <property>instrumentation/altimeter/setting-inhg</property>
+    <factor> 0.01 </factor>
+    <step> 10 </step>
+    <scroll> 0 </scroll>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>textranslate</type>
+    <object-name>inhg2</object-name>
+    <property>instrumentation/altimeter/setting-inhg</property>
+    <factor> 0.1 </factor>
+    <step> 1 </step>
+    <scroll> 0 </scroll>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>textranslate</type>
+    <object-name>inhg3</object-name>
+    <property>instrumentation/altimeter/setting-inhg</property>
+    <factor> 1 </factor>
+    <step> 0.1 </step>
+    <scroll> 0 </scroll>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>textranslate</type>
+    <object-name>inhg4</object-name>
+    <property>instrumentation/altimeter/setting-inhg</property>
+    <factor> 10 </factor>
+    <step> 0.01 </step>
+    <scroll> 0 </scroll>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+</PropertyList>

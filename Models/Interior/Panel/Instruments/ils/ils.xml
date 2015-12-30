@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+  
+  <path>ils.ac</path>
+  
+  <animation>
+    <!-- Objets opaques -->
+    <object-name>Bevel</object-name>
+    <object-name>CourseButton</object-name>
+    <object-name>MarkerLight</object-name>
+    <object-name>Face</object-name>
+    <object-name>Course.001</object-name>
+    <object-name>Course.002</object-name>
+    <object-name>Course.003</object-name>
+    <object-name>VORFlag</object-name>
+    <object-name>GSFlag</object-name>
+    <object-name>VORNeedle</object-name>
+    <object-name>GSNeedle</object-name>
+    <object-name>DirectionNeedle</object-name>
+    
+    <!-- Objets transparents -->
+    <object-name>vitre</object-name>
+  </animation>
+  
+  <!-- working for Rembrandt -->
+  <effect>
+    <inherits-from>Aircraft/Super-Frelon/Models/Effects/Glass/glass</inherits-from>
+    <object-name>vitre</object-name>
+  </effect>
+  
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>vitre</object-name>
+  </effect>
+  
+  <animation>
+    <type>material</type>
+    <object-name>MarkerLight</object-name>
+    <object-name>Face</object-name>
+    <object-name>Course.001</object-name>
+    <object-name>Course.002</object-name>
+    <object-name>Course.003</object-name>
+    <object-name>VORFlag</object-name>
+    <object-name>GSFlag</object-name>
+    <object-name>VORNeedle</object-name>
+    <object-name>GSNeedle</object-name>
+    <object-name>DirectionNeedle</object-name>
+    <emission>
+      <factor-prop>systems/electrical/outputs/instrument-lights</factor-prop>
+      <red>   0.50 </red>
+      <green> 0.25 </green>
+      <blue>  0.25 </blue>
+    </emission> 
+  </animation>
+  
+  <!-- Course Display --> 
+  <animation>
+    <type>textranslate</type>
+    <object-name>Course.001</object-name>
+    <property>/instrumentation/nav[0]/radials/selected-deg</property>
+    <factor>    0.001 </factor>
+    <offset> -100.000 </offset>
+    <step>    100.000 </step>
+    <scroll>    0.500 </scroll>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>textranslate</type>
+    <object-name>Course.002</object-name>
+    <property>/instrumentation/nav[0]/radials/selected-deg</property>
+    <factor>   0.01 </factor>
+    <offset> -10.00 </offset>
+    <step>    10.00 </step>
+    <scroll>   0.50 </scroll>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>textranslate</type>
+    <object-name>Course.003</object-name>
+    <property>/instrumentation/nav[0]/radials/selected-deg</property>
+    <factor>  0.1 </factor>
+    <offset> -1.0 </offset>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>GSNeedle</object-name>
+    <property>instrumentation/nav[0]/gs-needle-deflection</property>
+    <min> -10 </min>
+    <max>  10 </max>
+    <interpolation>
+      <entry><ind> -10 </ind><dep>  35 </dep></entry>
+      <entry><ind>   0 </ind><dep>   0 </dep></entry>
+      <entry><ind>  10 </ind><dep> -35 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>select</type>
+    <object-name>GSFlag</object-name>
+    <condition>
+      <and>
+        <or>
+          <equals>
+            <property>instrumentation/nav/in-range[0]</property>
+            <value type="bool">false</value>
+          </equals>
+          <equals>
+            <property>instrumentation/nav/has-gs[0]</property>
+            <value type="bool">false</value>
+          </equals>
+        </or>
+      </and>
+    </condition>
+  </animation>
+  
+  <animation>
+    <type>select</type>
+    <object-name>VORFlag</object-name>
+    <condition>
+      <equals>
+        <property>instrumentation/nav[0]/in-range</property>
+        <value type="bool">false</value>
+      </equals>
+    </condition>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>DirectionNeedle</object-name>
+    <property>instrumentation/ils/to-from</property>
+    <factor> 1 </factor>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>VORNeedle</object-name>
+    <property>instrumentation/nav[0]/heading-needle-deflection</property>
+    <min> -10 </min>
+    <max>  10 </max>
+    <interpolation>
+      <entry><ind> -10 </ind><dep>  35 </dep></entry>
+      <entry><ind>   0 </ind><dep>   0 </dep></entry>
+      <entry><ind>  10 </ind><dep> -35 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>pick</type>
+    <object-name>CourseButton</object-name>
+    <visible>true</visible>
+    <action>
+      <button>4</button>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/nav[0]/radials/selected-deg</property>
+        <step>-1</step>
+        <min>0</min>
+        <max>360</max>
+        <wrap>1</wrap>
+      </binding>
+    </action>
+    <action>
+      <button>3</button>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/nav[0]/radials/selected-deg</property>
+        <step>1</step>
+        <min>0</min>
+        <max>360</max>
+        <wrap>1</wrap>
+      </binding>
+    </action>
+  </animation>   
+  
+  <!-- Course Knob --> 
+  <animation>
+    <type>rotate</type>
+    <object-name>CourseButton</object-name>
+    <property>/instrumentation/nav[0]/radials/selected-deg</property>
+    <factor> 4 </factor>
+    <center>
+      <x-m>  0.00000 </x-m>
+      <y-m> -0.03197 </y-m>
+      <z-m> -0.03212 </z-m>
+    </center>
+    <axis>
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+  
+</PropertyList>
