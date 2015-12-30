@@ -4,15 +4,34 @@
 
   <path>superfrelon.ac</path>
 
+  <!-- MP sound call -->
+  <sound>
+    <path>Aircraft/Super-Frelon/Sounds/mp-sound.xml</path>
+  </sound>
+  
   <nasal>
     <load>
       var livery_update = aircraft.livery_update.new("Aircraft/Super-Frelon/Models/Liveries", 10);
+      
+      var self = cmdarg();
+      
+      var float_0 = self.getNode("sim/multiplay/generic/float[0]", 1);
+      var float_1 = self.getNode("sim/multiplay/generic/float[1]", 1);
+      
+      var crew_door = self.getNode("sim/model/door-positions/crew/position-norm", 1);
+      var passenger_door = self.getNode("sim/model/door-positions/passenger/position-norm", 1);
+      
+      crew_door.alias(float_0);
+      passenger_door.alias(float_1);
     </load>
+    
     <unload>
       livery_update.stop();
+      crew_door.unalias();
+      passenger_door.unalias();
     </unload>
   </nasal>
-
+  
   <animation>
     <object-name>fuselage</object-name>
     <object-name>surroues</object-name>
@@ -20,26 +39,24 @@
     <object-name>aileron</object-name>
     <object-name>toit</object-name>
     <object-name>echelle</object-name>
+    <object-name>nez</object-name>
+    <object-name>contrefort</object-name>
+    <object-name>rainures</object-name>
+    <object-name>porteD</object-name>
+    <object-name>portecargo</object-name>
+    
+    <object-name>axeA</object-name>
     <object-name>roueA</object-name>
+    <object-name>axeG</object-name>
     <object-name>roueG</object-name>
+    <object-name>axeD</object-name>
     <object-name>roueD</object-name>
     <object-name>trous</object-name>
-    <object-name>nez</object-name>
-
+    <object-name>antenne</object-name>
+    
     <!-- Transparence -->
     <object-name>vitres</object-name>
-  </animation>
-
-  <animation>
-    <type>shader</type>
-    <shader>chrome</shader>
-    <texture>glass_shader.png</texture>
-    <object-name>vitres</object-name>
-  </animation>
-
-  <animation>
-    <type>noshadow</type>
-    <object-name>vitres</object-name>
+    <object-name>vitreporteD</object-name>
   </animation>
 
   <animation>
@@ -50,46 +67,59 @@
     <object-name>aileron</object-name>
     <object-name>toit</object-name>
     <object-name>echelle</object-name>
+    <object-name>nez</object-name>
+    <object-name>contrefort</object-name>
+    <object-name>rainures</object-name>
+    <object-name>porteD</object-name>
+    <object-name>portecargo</object-name>
+    
+    <object-name>axeA</object-name>
     <object-name>roueA</object-name>
+    <object-name>axeG</object-name>
     <object-name>roueG</object-name>
+    <object-name>axeD</object-name>
     <object-name>roueD</object-name>
     <object-name>trous</object-name>
-    <object-name>nez</object-name>
-
+    <object-name>antenne</object-name>
+    
     <property-base>sim/model/livery</property-base>
     <texture-prop>texture</texture-prop>
     <texture>texture.png</texture>
-<!--
-    <diffuse>
-      <red-prop>diffuse/red</red-prop>
-      <green-prop>diffuse/green</green-prop>
-      <blue-prop>diffuse/blue</blue-prop>
-    </diffuse>
-
-    <ambient>
-      <red-prop>ambient/red</red-prop>
-      <green-prop>ambient/green</green-prop>
-      <blue-prop>ambient/blue</blue-prop>
-    </ambient>
--->
     <specular>
       <red-prop>specular/red</red-prop>
       <green-prop>specular/green</green-prop>
       <blue-prop>specular/blue</blue-prop>
     </specular>
-
-    <emission>
-      <red-prop>emission/red</red-prop>
-      <green-prop>emission/green</green-prop>
-      <blue-prop>emission/blue</blue-prop>
-    </emission>
-<!--
-    <shininess>
-      <shininess-prop>shininess</shininess-prop>
-    </shininess>
--->
   </animation>
 
+  <effect>
+    <inherits-from>Aircraft/Generic/Effects/Fuselagereflect</inherits-from>
+    <object-name>fuselage</object-name>
+    <object-name>surroues</object-name>
+    <object-name>tail</object-name>
+    <object-name>aileron</object-name>
+    <object-name>toit</object-name>
+    <object-name>echelle</object-name>
+    <object-name>nez</object-name>
+    <object-name>contrefort</object-name>
+    <object-name>rainures</object-name>
+    <object-name>porteD</object-name>
+    <object-name>portecargo</object-name>
+  </effect>
+  
+  <!-- working for Rembrandt -->
+  <effect>
+    <inherits-from>Aircraft/Super-Frelon/Models/Effects/Glass/glass</inherits-from>
+    <object-name>vitres</object-name>
+    <object-name>vitreporteD</object-name>
+  </effect>
+  
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>vitres</object-name>
+    <object-name>vitreporteD</object-name>
+  </effect>
+  
   <animation>
     <type>select</type>
     <object-name>nez</object-name>
@@ -104,26 +134,26 @@
   <!-- Intérieur -->
   <model>
     <path>Aircraft/Super-Frelon/Models/Interior/interior.xml</path>
-    <offsets>
-      <x-m> 0 </x-m>
-      <y-m> 0 </y-m>
-      <z-m> 0 </z-m>
-      <roll-deg>    0 </roll-deg>
-      <pitch-deg>   0 </pitch-deg>
-      <heading-deg> 0 </heading-deg>
-    </offsets>
   </model>
 
+  <!-- Shadow -->
+  <model>
+    <path>Aircraft/Super-Frelon/Models/shadow.xml</path>
+    <offsets>
+      <x-m>  0 </x-m>
+      <y-m>  0 </y-m>
+      <z-m> -3 </z-m>
+    </offsets>
+  </model>
+  
   <!-- Rotor principale -->
   <model>
     <path>Aircraft/Super-Frelon/Models/MainRotor/mainrotor.xml</path>
     <offsets>
       <x-m> -2.508 </x-m>
-      <y-m>  0.014 </y-m>
+      <y-m>  0.000 </y-m>
       <z-m>  1.345 </z-m>
-      <roll-deg>    0 </roll-deg>
-      <pitch-deg>  -5 </pitch-deg>
-      <heading-deg> 0 </heading-deg>
+      <pitch-deg> -5 </pitch-deg>
     </offsets>
   </model>
 
@@ -131,21 +161,35 @@
   <model>
     <path>Aircraft/Super-Frelon/Models/TailRotor/tailrotor.xml</path>
     <offsets>
-      <x-m>  9.295 </x-m>
-      <y-m> -0.506 </y-m>
-      <z-m>  1.335 </z-m>
-      <roll-deg>   90 </roll-deg>
-      <pitch-deg>   0 </pitch-deg>
-      <heading-deg> 0 </heading-deg>
+      <x-m>  9.29118 </x-m>
+      <y-m> -0.90344 </y-m>
+      <z-m>  1.33052 </z-m>
+      <roll-deg> 90 </roll-deg>
     </offsets>
   </model>
 
+  <!-- Ground effect -->
+  <model>
+    <path>Aircraft/Super-Frelon/Models/Effects/Ground/ground.xml</path>
+    <offsets>
+      <x-m> -2.5 </x-m>
+      <y-m>  0.0 </y-m>
+      <z-m> -3.0 </z-m>
+    </offsets>
+  </model>
+  
   <!-- Compresssion -->
   <animation>
-    <type>translate</type>
+    <name>TrainAvant</name>
+    <object-name>axeA</object-name>
     <object-name>roueA</object-name>
+  </animation>
+  
+  <animation>
+    <type>translate</type>
+    <object-name>TrainAvant</object-name>
     <property>gear/gear[0]/compression-m</property>
-    <factor> 0.3 </factor>
+    <factor> 0.1 </factor>
     <axis>
       <x> 0 </x>
       <y> 0 </y>
@@ -154,10 +198,16 @@
   </animation>
 
   <animation>
-    <type>translate</type>
+    <name>TrainGauche</name>
+    <object-name>axeG</object-name>
     <object-name>roueG</object-name>
+  </animation>
+  
+  <animation>
+    <type>translate</type>
+    <object-name>TrainGauche</object-name>
     <property>gear/gear[1]/compression-m</property>
-    <factor> 0.3 </factor>
+    <factor> 0.1 </factor>
     <axis>
       <x> 0 </x>
       <y> 0 </y>
@@ -166,10 +216,16 @@
   </animation>
 
   <animation>
-    <type>translate</type>
+    <name>TrainDroit</name>
+    <object-name>axeD</object-name>
     <object-name>roueD</object-name>
+  </animation>
+  
+  <animation>
+    <type>translate</type>
+    <object-name>TrainDroit</object-name>
     <property>gear/gear[2]/compression-m</property>
-    <factor> 0.3 </factor>
+    <factor> 0.1 </factor>
     <axis>
       <x> 0 </x>
       <y> 0 </y>
@@ -177,5 +233,143 @@
     </axis>
   </animation>
 
-</PropertyList>
+  <!-- Animation des portes -->  
+  <animation>
+    <name>LaPorteGauche</name>
+    <object-name>porteD</object-name>
+    <object-name>vitreporteD</object-name>
+  </animation>
 
+  <animation>
+    <type>pick</type>
+    <object-name>LaPorteGauche</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>doors.crew.toggle();</script>
+      </binding>
+    </action>
+  </animation>
+  
+  <animation>
+    <type>translate</type>
+    <object-name>LaPorteGauche</object-name>
+    <property>sim/model/door-positions/crew/position-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 0.00 </dep></entry>
+      <entry><ind> 1 </ind><dep> 0.06 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>translate</type>
+    <object-name>LaPorteGauche</object-name>
+    <property>sim/model/door-positions/crew/position-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 0.00 </dep></entry>
+      <entry><ind> 1 </ind><dep> 1.38 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>LaPorteGauche</object-name>
+    <property>sim/model/door-positions/crew/position-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep>  0 </dep></entry>
+      <entry><ind> 1 </ind><dep> -4 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m> -6.02264 </x-m>
+      <y-m>  1.59220 </y-m>
+      <z-m> -1.18700 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>pick</type>
+    <object-name>portecargo</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>doors.passenger.toggle();</script>
+      </binding>
+    </action>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>portecargo</object-name>
+    <property>sim/model/door-positions/passenger/position-norm</property>
+    <factor> 46 </factor>
+    <center>
+      <x-m>  0.77541 </x-m>
+      <y-m>  0.00000 </y-m>
+      <z-m> -2.40478 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <!-- Ajout des effets lumineux -->
+  <model>
+    <path>Aircraft/Super-Frelon/Models/light/beacon.xml</path>
+    <offsets>
+      <x-m> 9.227 </x-m>
+      <y-m> 0.000 </y-m>
+      <z-m> 1.648 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Super-Frelon/Models/light/RedLight.xml</path>
+    <offsets>
+      <x-m> -3.657 </x-m>
+      <y-m> -1.683 </y-m>
+      <z-m> -1.047 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Super-Frelon/Models/light/GreenLight.xml</path>
+    <offsets>
+      <x-m> -3.657 </x-m>
+      <y-m>  1.683 </y-m>
+      <z-m> -1.047 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Super-Frelon/Models/light/StrobeLight.xml</path>
+    <offsets>
+      <x-m> -5.194 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.700 </z-m>
+    </offsets>
+  </model>
+  
+</PropertyList>
