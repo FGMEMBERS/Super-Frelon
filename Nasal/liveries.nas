@@ -1,2 +1,1 @@
-aircraft.livery.init("Aircraft/Ka-50/Models/Liveries");
-
+aircraft.livery.init("Aircraft/Super-Frelon/Models/Liveries");

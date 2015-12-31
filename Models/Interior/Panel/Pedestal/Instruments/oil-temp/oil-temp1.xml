@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+  
+  <path>oil-temp.ac</path>
+  
+  <animation>
+    <!-- Objets opaques -->
+    <object-name>OilTmpBevel</object-name>
+    <object-name>OilTmpFace</object-name>
+    <object-name>OilTmpNeedle</object-name>
+    
+    <!-- Objets transparents -->
+    <object-name>vitre</object-name>
+  </animation>
+  
+  <!-- working for Rembrandt -->
+  <effect>
+    <inherits-from>Aircraft/Super-Frelon/Models/Effects/Glass/glass</inherits-from>
+    <object-name>vitre</object-name>
+  </effect>
+  
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>vitre</object-name>
+  </effect>
+  
+  <animation>
+    <type>material</type>
+    <object-name>OilTmpFace</object-name>
+    <object-name>OilTmpNeedle</object-name>
+    <emission>
+      <factor-prop>systems/electrical/outputs/instrument-lights</factor-prop>
+      <red>   0.50 </red>
+      <green> 0.25 </green>
+      <blue>  0.25 </blue>
+    </emission> 
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>OilTmpNeedle</object-name>
+    <property>engines/engine[1]/fuel-flow-gph</property>
+    <factor>    0.12 </factor>
+    <min-deg>   0.00 </min-deg>
+    <max-deg> 300.00 </max-deg>
+    <axis>
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+  
+</PropertyList>

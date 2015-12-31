@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 
 <PropertyList>
 
@@ -6,31 +6,23 @@
 
   <animation>
     <object-name>rotor</object-name>
+    <object-name>assemble</object-name>
+    <object-name>axeH</object-name>
+    <object-name>axeV</object-name>
+    <object-name>plateau</object-name>
+    <object-name>pistons</object-name>
   </animation>
-
+  
   <!-- Blades -->
   <model>
     <name>Blade1</name>
     <path>Aircraft/Super-Frelon/Models/MainRotor/blade1.xml</path>
-    <offsets>
-      <x-m> 0 </x-m>
-      <y-m> 0 </y-m>
-      <z-m> 0 </z-m>
-      <roll-deg>    0 </roll-deg>
-      <pitch-deg>   0 </pitch-deg>
-      <heading-deg> 0 </heading-deg>
-    </offsets>
   </model>
 
   <model>
     <name>Blade2</name>
     <path>Aircraft/Super-Frelon/Models/MainRotor/blade2.xml</path>
     <offsets>
-      <x-m> 0 </x-m>
-      <y-m> 0 </y-m>
-      <z-m> 0 </z-m>
-      <roll-deg>     0 </roll-deg>
-      <pitch-deg>    0 </pitch-deg>
       <heading-deg> 60 </heading-deg>
     </offsets>
   </model>
@@ -39,11 +31,6 @@
     <name>Blade3</name>
     <path>Aircraft/Super-Frelon/Models/MainRotor/blade3.xml</path>
     <offsets>
-      <x-m> 0 </x-m>
-      <y-m> 0 </y-m>
-      <z-m> 0 </z-m>
-      <roll-deg>      0 </roll-deg>
-      <pitch-deg>     0 </pitch-deg>
       <heading-deg> 120 </heading-deg>
     </offsets>
   </model>
@@ -52,11 +39,6 @@
     <name>Blade4</name>
     <path>Aircraft/Super-Frelon/Models/MainRotor/blade4.xml</path>
     <offsets>
-      <x-m> 0 </x-m>
-      <y-m> 0 </y-m>
-      <z-m> 0 </z-m>
-      <roll-deg>      0 </roll-deg>
-      <pitch-deg>     0 </pitch-deg>
       <heading-deg> 180 </heading-deg>
     </offsets>
   </model>
@@ -65,11 +47,6 @@
     <name>Blade5</name>
     <path>Aircraft/Super-Frelon/Models/MainRotor/blade5.xml</path>
     <offsets>
-      <x-m> 0 </x-m>
-      <y-m> 0 </y-m>
-      <z-m> 0 </z-m>
-      <roll-deg>      0 </roll-deg>
-      <pitch-deg>     0 </pitch-deg>
       <heading-deg> 240 </heading-deg>
     </offsets>
   </model>
@@ -78,18 +55,12 @@
     <name>Blade6</name>
     <path>Aircraft/Super-Frelon/Models/MainRotor/blade6.xml</path>
     <offsets>
-      <x-m> 0 </x-m>
-      <y-m> 0 </y-m>
-      <z-m> 0 </z-m>
-      <roll-deg>      0 </roll-deg>
-      <pitch-deg>     0 </pitch-deg>
       <heading-deg> 300 </heading-deg>
     </offsets>
   </model>
 
   <animation>
-    <name>rotorcomplet</name>
-    <object-name>rotor</object-name>
+    <name>touteslespales</name>
     <object-name>Blade1</object-name>
     <object-name>Blade2</object-name>
     <object-name>Blade3</object-name>
@@ -101,53 +72,54 @@
   <!-- Rotation du rotor 
   <animation>
     <type>rotate</type>
-    <object-name>rotorcomplet</object-name>
+    <object-name>touteslespales</object-name>
     <property>rotors/main/roll-deg</property>
-    <factor>0.7</factor>
-    <center>
-       <x-m> 0.000 </x-m>
-       <y-m> 0.000 </y-m>
-       <z-m> 0.000 </z-m>
-    </center>
+    <factor> 0.7 </factor>
     <axis>
-      <x> 1.000 </x>
-      <y> 0.000 </y>
-      <z> 0.000 </z>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
     </axis>
   </animation>
 
   <animation>
     <type>rotate</type>
-    <object-name>rotorcomplet</object-name>
+    <object-name>touteslespales</object-name>
     <property>rotors/main/yaw-deg</property>
-    <factor>0.7</factor>
-    <center>
-       <x-m> 0.000 </x-m>
-       <y-m> 0.000 </y-m>
-       <z-m> 0.000 </z-m>
-    </center>
+    <factor> 0.7 </factor>
     <axis>
-      <x> 0.000 </x>
-      <y>-1.000 </y>
-      <z> 0.000 </z>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
     </axis>
-  </animation> -->
+  </animation>
+  -->
 
+  <animation>
+    <name>rotorcomplet</name>
+    <object-name>rotor</object-name>
+    <object-name>assemble</object-name>
+    <object-name>plateau</object-name>
+    <object-name>pistons</object-name>
+    <object-name>axeH</object-name>
+    <object-name>axeV</object-name>
+    <object-name>Blade1</object-name>
+    <object-name>Blade2</object-name>
+    <object-name>Blade3</object-name>
+    <object-name>Blade4</object-name>
+    <object-name>Blade5</object-name>
+    <object-name>Blade6</object-name>
+  </animation>
+  
   <animation>
     <type>rotate</type>
     <object-name>rotorcomplet</object-name>
     <property>rotors/main/blade[0]/position-deg</property>
-    <center>
-       <x-m> 0 </x-m>
-       <y-m> 0 </y-m>
-       <z-m> 0 </z-m>
-    </center>
     <axis>
       <x> 0 </x>
       <y> 0 </y>
       <z> 1 </z>
     </axis>
   </animation>
-
+  
 </PropertyList>
-
